@@ -2,15 +2,26 @@
   'use strict';
 
   const ws = io.connect();
+  const form = document.querySelector("form");
+  const name = document.querySelector("input[name='name']");
+  const text = document.querySelector("input[name='text']");
+  const ul = document.querySelector("ul");
+
 
   ws.on('connect', () => {
     console.log('socket connected');
   });
 
-  const form = document.querySelector("form");
-  const name = document.querySelector("input[name='name']");
-  const text = document.querySelector("input[name='text']");
-  const ul = document.querySelector("ul");
+  ws.on('received chat', (msg) => {
+
+      console.log('message received');
+      let elemNode = document.createElement("h1");
+      // create text for li
+      let textNode = document.createTextNode(`${msg.name}:  ${msg.text}`);
+      elemNode.appendChild(textNode);
+      ul.appendChild(elemNode);
+  });
+
 
 // when form is submitted, create li element and append to ul
   form.addEventListener("submit", () => {
@@ -24,5 +35,12 @@
     elemNode.appendChild(textNode);
     // append li to ul
     ul.appendChild(elemNode);
+
+    // emit event over socket
+    ws.emit('send chat', {
+      name:name.value,
+      text: text.value
+    });
+
   });
 }());
