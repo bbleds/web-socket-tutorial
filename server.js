@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 
 app.get("/", (req, res) => {
-  res.send("Connected");
+  res.sendFile(__dirname + '/html/index.html');
 });
 
 server.listen(PORT, () => {
