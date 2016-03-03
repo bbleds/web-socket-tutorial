@@ -20,3 +20,7 @@ app.get("/", (req, res) => {
 server.listen(PORT, () => {
   console.log(`listening on port: ${PORT}`);
 });
+
+io.on('connection', socket => {
+  console.log('socket connected');
+});
