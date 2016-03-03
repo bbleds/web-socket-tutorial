@@ -1,0 +1,25 @@
+{
+  "name": "web-socket-tutorial",
+  "version": "1.0.0",
+  "description": "a simple introduction to web sockets",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbleds/web-socket-tutorial.git"
+  },
+  "keywords": [],
+  "author": "Benjamin Bledsoe <bledsoedesigns@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bbleds/web-socket-tutorial/issues"
+  },
+  "homepage": "https://github.com/bbleds/web-socket-tutorial#readme",
+  "devDependencies": {
+    "nodemon": "^1.9.1"
+  }
+}
